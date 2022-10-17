@@ -7,12 +7,18 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import rikkei.academy.service.StudentServiceIMPL;
 
 @Configuration
 @EnableWebMvc
 @ComponentScan("rikkei.academy.controller")
 public class AppConfig implements WebMvcConfigurer {
     @Bean
+
+    public StudentServiceIMPL customerService() {
+        return new StudentServiceIMPL();
+    }
+
     public ViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setPrefix("/WEB-INF/views/");
